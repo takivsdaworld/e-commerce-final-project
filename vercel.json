@@ -8,20 +8,10 @@
     {
       "src": "client/package.json",
       "use": "@vercel/static-build",
-      "options": {
-        "buildCommand": "npm run build",
-        "outputDirectory": "dist"
-      }
+      "config": { "distDir": "client/dist" }
     }
   ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "server/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "client/dist/$1"
-    }
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "server/index.js" }
   ]
 }

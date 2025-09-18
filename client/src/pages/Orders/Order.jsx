@@ -36,14 +36,14 @@ const Order = () => {
       refetch();
       toast.success("Order is marked as paid");
     } catch (error) {
-      toast.error(error?.data?.message || error.message);
+      toast.error(error?.data?.message || error?.message || "An error occurred");
     }
   };
 
   return isLoading ? (
     <Loader />
   ) : error ? (
-    <Messsage variant="danger">{error.data.message}</Messsage>
+    <Messsage variant="danger">{error?.data?.message || error?.message || "An error occurred"}</Messsage>
   ) : (
     <div className="container flex flex-col ml-[10rem] md:flex-row">
       <div className="md:w-2/3 pr-4">

@@ -31,7 +31,7 @@ const ProductCarousel = () => {
     <div className="mb-4 flex justify-center items-center">
       {isLoading ? null : error ? (
         <Message variant="danger">
-          {error?.data?.Message || error.message}
+          {error?.data?.message || error?.message || "An error occurred"}
         </Message>
       ) : (
         <Slider

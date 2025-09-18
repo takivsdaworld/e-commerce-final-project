@@ -22,7 +22,7 @@ const Home = () => {
             <Loader />
           ) : topError ? (
             <Message variant="danger">
-              {topError?.data.message || topError.error}
+              {topError?.data?.message || topError?.message || "An error occurred"}
             </Message>
           ) : (
             <div className="flex justify-center flex-wrap">
@@ -43,7 +43,7 @@ const Home = () => {
           <Loader />
         ) : isError ? (
           <Message variant="danger">
-            {isError?.data.message || isError.error}
+            {isError?.data?.message || isError?.message || "An error occurred"}
           </Message>
         ) : (
           <div className="flex justify-center flex-wrap mt-[2rem]">
